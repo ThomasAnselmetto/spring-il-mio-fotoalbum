@@ -4,16 +4,38 @@
     <th:block th:replace="~{/fragments/resources :: head(pageTitle='Photo List')}"></th:block>
 </head>
 <body>
-<nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}">
-    <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-</nav>
-<div class="container">
-    <ul th:each="photo : ${photos}">
-        <li th:text="${photo.title}"></li>
-    </ul>
+<nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
+
+
+<!--faro' una serie di card solo con l'immagine e una scritta in hover che ti fa andare al dettaglio-->
+<div class="container pb-5">
+    <div class="row g-4 mt-3">
+<!--        messaggio che cambiera' in base all'utente-->
+        <div class="col-6">
+            <h1>Benvenuto visitatore nel Photo Portfolio di MeMedesimo</h1>
+        </div>
+        <div class="col-6">
+            <form th:action="@{/photos}" method="GET">
+
+                    <label for="keyword" class="form-label fw-bold">Cerca Una Foto</label>
+                    <input type="text" class="form-control my-3" id="keyword" name="keyword" placeholder="Cerca Qui...">
+
+                <button type="submit" class="btn btn-primary">Ricerca</button>
+            </form>
+        </div>
+
+        <div class="col-3" th:each="photo : ${photos}">
+            <div class="card">
+<!--                sec:authorize="hasAuthority('ADMIN')"  questo mi servira' piu' avanti-->
+                <a  class="btn btn-primary" th:href="@{|/photos/${photo.id}|}">
+                    <img th:src="${photo.url}" class="card-img-top" th:alt="${photo.title}">
+                </a>
+                <div class="card-body">
+                    <p class="card-text" th:text="${photo.title}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
