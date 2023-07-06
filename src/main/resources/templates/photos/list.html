@@ -12,7 +12,7 @@
 </nav>
 <div class="container">
     <ul th:each="photo : ${photos}">
-        <li th:text="photo.title"></li>
+        <li th:text="${photo.title}"></li>
     </ul>
 </div>
 
