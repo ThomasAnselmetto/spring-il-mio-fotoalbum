@@ -1,17 +1,18 @@
 package org.lesson.fotoportfolio.controller;
 
+import jakarta.validation.Valid;
 import org.lesson.fotoportfolio.model.Photo;
 import org.lesson.fotoportfolio.repository.PhotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,18 +41,28 @@ public class PhotoController {
     public String show(@PathVariable Integer id,Model model){
         Photo photo = getPhotoById(id);//eccezione gia' gestita nel metodo
         model.addAttribute("photo",photo);
-        return "photos/show";
+        return "/photos/show";
     }
     //CREATE GET PER MOSTRARE IL FORM
     @GetMapping("/create")
     public String create(Model model){
         model.addAttribute("photo", new Photo());
-        return "photos/form";
+        return "/photos/form";
     }
 
-
-
     //CREATE POST PER RICEVERE I CAMPI COMPILATI
+    @PostMapping("/create")
+    public String store(@Valid @ModelAttribute("photo") Photo formPhoto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            return "/pizzas/edit";
+        } else {
+            formPhoto.setCreatedAt(LocalDateTime.now());
+            photoRepository.save(formPhoto);
+            redirectAttributes.addFlashAttribute("message", "Photo " + formPhoto.getTitle() + " created!");
+            return "redirect:/photos";
+        }
+    }
+
     //UPDATE GET
     //UPDATE POST
     //DELETE

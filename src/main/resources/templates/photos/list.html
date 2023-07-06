@@ -13,6 +13,8 @@
 <!--        messaggio che cambiera' in base all'utente-->
         <div class="col-6">
             <h1>Benvenuto visitatore nel Photo Portfolio di MeMedesimo</h1>
+            <a th:href="@{/photos/create}" class="btn btn-dark">Aggiungi una foto</a>
+
         </div>
         <div class="col-6">
             <form th:action="@{/photos}" method="GET">
@@ -29,6 +31,7 @@
 <!--                sec:authorize="hasAuthority('ADMIN')"  questo mi servira' piu' avanti-->
                 <a  class="btn btn-primary" th:href="@{|/photos/${photo.id}|}">
                     <img th:src="${photo.url}" class="card-img-top" th:alt="${photo.title}">
+                    <a href="#" class="d-none">A</a>
                 </a>
                 <div class="card-body">
                     <p class="card-text" th:text="${photo.title}"></p>

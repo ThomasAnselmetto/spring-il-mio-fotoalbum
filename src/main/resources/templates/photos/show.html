@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:replace="~{/fragments/resources :: head(pageTitle='Photo List')}"></th:block>
+    <th:block th:replace="~{/fragments/resources :: head(pageTitle='Photo Detail')}"></th:block>
 </head>
 <body>
 <nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
@@ -10,7 +10,7 @@
         <div class="col-10 offset-1 bg-info py-4 border rounded-3 border-dark">
             <div class="row">
                 <div class="col-4">
-                    <img th:src="*{url}" class="card-img-top" th:alt="*{title}">
+                    <img th:src="*{url}" class="card-img-top rounded-3" th:alt="*{title}">
                 </div>
                 <div class="col-8">
                     <h2 th:text="*{title}" class="card-title"></h2>
