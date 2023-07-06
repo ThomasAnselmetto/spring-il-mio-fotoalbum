@@ -13,6 +13,9 @@ public class Photo {
 private Integer id;
 @Column(nullable = false)
 private String title;
+@Lob
+@Column(columnDefinition = "TEXT")
+private String description;
 private String url;
 private boolean visible;
 @ManyToMany
@@ -37,6 +40,14 @@ private List<Category> categories = new ArrayList<>();
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUrl() {
