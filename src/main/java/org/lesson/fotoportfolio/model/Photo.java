@@ -1,5 +1,6 @@
 package org.lesson.fotoportfolio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
@@ -21,6 +22,7 @@ private String description;
 private String url;
 private boolean visible;
 private LocalDateTime createdAt;
+
 @ManyToMany
 @JoinTable(name = "photo_category",
 joinColumns = @JoinColumn(name = "photo_id"),

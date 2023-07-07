@@ -1,5 +1,6 @@
 package org.lesson.fotoportfolio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ public class Category {
     @Column(columnDefinition = "TEXT")
     private String description;
     private LocalDateTime createdAt;
+    @JsonIgnore
     @ManyToMany(mappedBy = "categories")
     private List<Photo> photos = new ArrayList<>();
 
