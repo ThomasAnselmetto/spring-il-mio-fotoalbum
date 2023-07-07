@@ -42,3 +42,11 @@ height:40px;
 .contenitore-relative:hover .figlio-absolute-delete {
   display: block; /* Mostra l'elemento figlio quando passa sopra .contenitore-relative */
 }
+.category-icons{
+min-width: 100px;
+}
+button{
+border:none;
+background-color:inherit;
+padding:0;
+}

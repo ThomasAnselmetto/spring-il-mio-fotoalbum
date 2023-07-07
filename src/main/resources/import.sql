@@ -12,10 +12,10 @@ INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizi
 
 
 --lista delle categorie
-INSERT INTO `categories`(`name`) VALUES ('selfie')
-INSERT INTO `categories`(`name`) VALUES ('natura')
-INSERT INTO `categories`(`name`) VALUES ('tecnologia')
-INSERT INTO `categories`(`name`) VALUES ('citta')
+INSERT INTO `categories`(`name`,`description`) VALUES ('Selfie',"photos made by themselves")
+INSERT INTO `categories`(`name`,`description`) VALUES ('Natura','Photos with nature subject')
+INSERT INTO `categories`(`name`,`description`) VALUES ('Tecnologia',"Photos with technological focus")
+INSERT INTO `categories`(`name`,`description`) VALUES ('Citta','Photos with cities subject')
 
 --dati tabelle ponte
 INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (1,1)

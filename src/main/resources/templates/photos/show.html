@@ -23,13 +23,15 @@
                 <div class="col-8">
                     <h2 th:text="*{title}" class="card-title"></h2>
                     <p th:text="*{description}" class="card-text"></p>
-                    <div class="categorie">
+
+                    <div class="categorie d-flex justify-content-between">
                         <h3>Categorie</h3>
+                        <a th:href="@{/categories}" class="btn btn-light border-dark">Form/Dettaglio Categorie</a>
                         <!--            in questo ul mettero' le categories-->
-                        <ul class="" th:each="category : ${photo.categories}" th:object="${category}">
-                            <li th:text="*{name}" class=""></li>
-                        </ul>
                     </div>
+                    <ul class="" th:each="category : ${photo.categories}" th:object="${category}">
+                        <li th:text="*{name}" class=""></li>
+                    </ul>
 
                 </div>
             </div>
