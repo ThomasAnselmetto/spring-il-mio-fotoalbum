@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:replace="~{/fragments/resources :: head(pageTitle='Photo Detail')}"></th:block>
+    <th:block th:replace="~{/fragments/resources :: head(pageTitle='photos')}"></th:block>
 </head>
 <body>
 <nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
@@ -10,7 +10,7 @@
         <div class="col-10 offset-1 custom-bg py-4 border rounded-3 border-dark">
             <div class="row">
                 <div class="col-4 contenitore-relative">
-                    <img th:src="*{url}" class="card-img-top rounded-3" th:alt="*{title}">
+                    <img th:src="*{url}" class="card-img-top rounded-3 border border-dark" th:alt="*{title}">
                     <a th:href="@{|/photos/edit/${photo.id}|}" class="fs-2 rounded-3 figlio-absolute text-center"><i class="fa-solid fa-square-pen"></i></a>
                     <form   class="figlio-absolute-delete rounded-3 "
                             th:action="@{|/photos/delete/${photo.id}|}"
@@ -21,8 +21,8 @@
                     </form>
                 </div>
                 <div class="col-8">
-                    <h2 th:text="*{title}" class="card-title"></h2>
-                    <p th:text="*{description}" class="card-text"></p>
+                    <h1 th:text=' | " *{title} " | ' class="card-title mb-3"></h1>
+                    <p th:text="*{description}" class="card-text bg-light rounded border border-dark p-2"></p>
 
                     <div class="categorie d-flex justify-content-between">
                         <h3>Categorie</h3>
@@ -36,8 +36,8 @@
                 </div>
             </div>
             <div class="card-body mt-4">
-                <a th:href="@{/photos}" class="card-link btn btn-light border border-dark">Torna alla lista delle foto</a>
-                <a href="https://picsum.photos/images" class="card-link btn btn-primary">Cerca foto su Lorem Picsum</a>
+                <a th:href="@{/photos}" class="card-link btn btn-light border border-dark me-2">Torna alla lista delle foto</a>
+                <a href="https://picsum.photos/images" class="card-link btn btn-primary border-dark">Cerca foto su Lorem Picsum</a>
             </div>
         </div>
     </div>

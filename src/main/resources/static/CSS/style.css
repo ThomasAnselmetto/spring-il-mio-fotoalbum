@@ -1,3 +1,7 @@
+body{
+font-family: 'Belanosima', sans-serif;
+}
+
 .custom-bg{
 background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,1) 20%, rgba(69,250,252,1) 72%, rgba(46,29,253,1) 98%);

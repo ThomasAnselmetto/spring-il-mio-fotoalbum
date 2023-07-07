@@ -8,6 +8,9 @@
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <!-- includo bootstrap css e js -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Belanosima:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/CSS/style.css}">
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.0/css/all.min.css}">
@@ -26,7 +29,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link fw-bold fs-5" aria-current="page" th:href="@{/photos}" th:classappend="${currentPage == 'photos' ? 'active' : ''}">Books</a>
+          <a class="nav-link fw-bold fs-5" aria-current="page" th:href="@{/photos}" th:classappend="${currentPage == 'photos' ? 'active' : ''}">Photos List</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold fs-5" th:href="@{/categories}" th:classappend="${currentPage == 'categories' ? 'active' : ''}">Categories</a>

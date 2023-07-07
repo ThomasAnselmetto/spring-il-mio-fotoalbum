@@ -1,6 +1,6 @@
 --Lista delle foto
 
-INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto1','Panchina su lungomare','https://picsum.photos/id/87/200/300',true)
+INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto1','Panchina al mare','https://picsum.photos/id/87/200/300',true)
 INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto2','Via lastricata','https://picsum.photos/id/57/200/300',true)
 INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto3','Smartwork','https://picsum.photos/id/1/200/300',true)
 INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto4','Pedestrian','https://picsum.photos/id/22/200/300',true)
@@ -29,3 +29,18 @@ INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (4,3)
 INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (5,1)
 INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (6,4)
 INSERT INTO `photo_category`(`photo_id`, `category_id`) VALUES (7,4)
+
+--lista users
+INSERT INTO `users`(`id`,`age`, `email`, `first_name`, `last_name`, `password`) VALUES (1,25,'pippo@piero.it','Pippo','Valenti','{noop}blablabla1')
+INSERT INTO `users`(`id`,`age`, `email`, `first_name`, `last_name`, `password`) VALUES (2,31,'pippo@paolo.it','Pisolo','Valente','{noop}blablabla2')
+INSERT INTO `users`(`id`,`age`, `email`, `first_name`, `last_name`, `password`) VALUES (3,34,'pippo@gianni.it','Mammolo','Valentis','{noop}blablabla3')
+
+--lista ruoli
+INSERT INTO `roles`(`id`, `name`) VALUES (1,'ADMIN')
+INSERT INTO `roles`(`id`, `name`) VALUES (2,'USER')
+
+--tabella ponte che stabilisce che ruolo ha ognuno degli utenti
+
+INSERT INTO `users_roles`(`user_id`, `roles_id`) VALUES (1,1)
+INSERT INTO `users_roles`(`user_id`, `roles_id`) VALUES (2,2)
+INSERT INTO `users_roles`(`user_id`, `roles_id`) VALUES (3,2)

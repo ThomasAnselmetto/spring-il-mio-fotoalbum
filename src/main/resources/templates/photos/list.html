@@ -26,20 +26,21 @@
             </form>
         </div>
 
-        <div class="col-3" th:each="photo : ${photos}">
+        <div class="col-3" th:if="${photos.size > 0}" th:each="photo : ${photos}">
 
             <div th:classappend="${photo.visible} ? '' : 'd-none'"  class="card">
 <!--                sec:authorize="hasAuthority('ADMIN')"  questo mi servira' piu' avanti-->
-                <a  class="btn btn-primary" th:href="@{|/photos/${photo.id}|}">
+                <a  class="bottone-to-detail" th:href="@{|/photos/${photo.id}|}">
                     <img th:src="${photo.url}" class="card-img-top" th:alt="${photo.title}">
 
                 </a>
                 <div class="card-body">
-                    <p class="card-text" th:text="${photo.title}"></p>
+                    <p class="card-text fs-4" th:text="${photo.title}"></p>
                 </div>
             </div>
 
         </div>
+        <div class="col-12 alert alert-info mt-5 fw-bold" th:unless="${photos.size > 0}">We are sorry but there are no photos in this portfolio yet</div>
     </div>
 </div>
 
