@@ -10,26 +10,26 @@
     <!-- includo bootstrap css e js -->
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/CSS/style.css}">
-    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.2.0/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.0/css/all.min.css}">
     <script defer th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
     <!-- il title della pagina cambia e lo leggo dal parametro del fragment -->
     <title th:text="${pageTitle}"></title>
   </th:block>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary" th:fragment="navbar(currentPage)">
+<nav class="navbar navbar-expand-lg bg-body-tertiary p-0" th:fragment="navbar(currentPage)">
   <div class="container-fluid">
-    <a class="navbar-brand" th:href="@{/photos}">LOGO</a>
+    <a class="navbar-brand" th:href="@{/photos}"><img class="logo-navbar" src="https://i.pinimg.com/736x/0d/cf/b5/0dcfb548989afdf22afff75e2a46a508.jpg"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
+          <a class="nav-link fw-bold fs-5" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link fw-bold fs-5" href="#">Link</a>
         </li>
 <!--        <li class="nav-item dropdown">-->
 <!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
@@ -48,9 +48,9 @@
   </div>
 </nav>
 
-<!--<div th:fragment="messages">-->
-<!--  <div class="alert alert-warning fw-bold" role="alert" th:if="${message != null}" th:text="${message}"></div>-->
-<!--</div>-->
+<div th:fragment="messages">
+  <div class="alert alert-warning fw-bold" role="alert" th:if="${message != null}" th:text="${message}"></div>
+</div>
 
 <hr>
 </body>

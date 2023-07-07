@@ -1,0 +1,44 @@
+.custom-bg{
+background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,1) 20%, rgba(69,250,252,1) 72%, rgba(46,29,253,1) 98%);
+}
+
+.logo-navbar{
+max-width:100px;
+}
+.contenitore-relative {
+  position: relative;
+}
+
+.figlio-absolute {
+  position: absolute;
+  background-color: white;
+  height:40px;
+  width:40px;
+  line-height:38px;
+  color: #090352;
+  top: 15px;
+  right: 28px;
+  display: none; /* Nascondi l'elemento inizialmente */
+}
+.figlio-absolute-delete{
+position: absolute;
+
+  top: 65px;
+  right: 28px;
+  display: none; /* Nascondi l'elemento inizialmente */
+}
+.btn-delete-custom{
+background-color: white;
+border:none;
+color: #bb0404;
+height:40px;
+  width:40px;
+  line-height:38px;
+}
+.contenitore-relative:hover .figlio-absolute {
+  display: block; /* Mostra l'elemento figlio quando passa sopra .contenitore-relative */
+}
+.contenitore-relative:hover .figlio-absolute-delete {
+  display: block; /* Mostra l'elemento figlio quando passa sopra .contenitore-relative */
+}

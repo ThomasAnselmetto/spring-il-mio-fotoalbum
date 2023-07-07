@@ -5,14 +5,14 @@
 </head>
 <body>
 <nav th:replace="~{/fragments/resources :: navbar(currentPage='photos')}"></nav>
-
+<div  th:replace="~{/fragments/resources :: messages}"></div>
 
 <!--faro' una serie di card solo con l'immagine e una scritta in hover che ti fa andare al dettaglio-->
 <div class="container pb-5">
     <div class="row g-4 mt-3">
 <!--        messaggio che cambiera' in base all'utente-->
         <div class="col-6">
-            <h1>Benvenuto visitatore nel Photo Portfolio di MeMedesimo</h1>
+            <h1 class="mb-3">Benvenuto visitatore nel Photo Portfolio di MeMedesimo</h1>
             <a th:href="@{/photos/create}" class="btn btn-dark">Aggiungi una foto</a>
 
         </div>
@@ -27,16 +27,18 @@
         </div>
 
         <div class="col-3" th:each="photo : ${photos}">
-            <div class="card">
+
+            <div th:classappend="${photo.visible} ? '' : 'd-none'"  class="card">
 <!--                sec:authorize="hasAuthority('ADMIN')"  questo mi servira' piu' avanti-->
                 <a  class="btn btn-primary" th:href="@{|/photos/${photo.id}|}">
                     <img th:src="${photo.url}" class="card-img-top" th:alt="${photo.title}">
-                    <a href="#" class="d-none">A</a>
+
                 </a>
                 <div class="card-body">
                     <p class="card-text" th:text="${photo.title}"></p>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
