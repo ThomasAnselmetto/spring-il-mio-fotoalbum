@@ -107,14 +107,14 @@ public class PhotoController {
         return "redirect:/photos";
     }
     //METODI CUSTOM
-    //Metodo per selezionare pizza da DB per ID o lancio di eccezione
+    //Metodo per selezionare foto da DB per ID o lancio di eccezione
 
     private Photo getPhotoById(Integer id) {
-//    ver pizza con quell'id' uso findById di Repository per creare un Optional
+//    ver foto con quell'id' uso findById di Repository per creare un Optional
         Optional<Photo> result = photoRepository.findById(id);
         if (result.isEmpty()) {
 //    se non esiste lancio eccezione
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "la pizza con id" + id + "non e' stata trovata"); //eccezione che deve ridare una risposta http quindi uno status
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "la foto con Id " + id + " non e' stata trovata"); //eccezione che deve ridare una risposta http quindi uno status
 //    aggiungo la foto al model(get restituisce la Photo che in Optional(che e' un contenitore di oggetti Photo))
 
         }

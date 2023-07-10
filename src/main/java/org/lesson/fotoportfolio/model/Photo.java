@@ -87,3 +87,4 @@ private List<Category> categories = new ArrayList<>();
         this.categories = categories;
     }
 }
+//Se abbiamo dei metodi propri della classe possiamo ignorarli per non passarli nella chiamata api con @JsonIgnore
