@@ -1,7 +1,7 @@
 --Lista delle foto
 
-INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto1','Panchina al mare','https://picsum.photos/id/87/200/300',true)
-INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto2','Via lastricata','https://picsum.photos/id/57/200/300',true)
+INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('panchina sul mare di poggibonsi che non so bene se abbia il mare o meno','Panchina al mare','https://picsum.photos/id/87/200/300',true)
+INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('strada lastricata del centro storico di piobesi che tanto nessuno la conosce','Via lastricata','https://picsum.photos/id/57/200/300',true)
 INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto3','Smartwork','https://picsum.photos/id/1/200/300',true)
 INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto4','Pedestrian','https://picsum.photos/id/22/200/300',true)
 INSERT INTO `photos`(`description`, `title`, `url`, `visible`) VALUES ('descrizione della foto5','Scogli','https://picsum.photos/id/12/200/300',true)

@@ -1,63 +1,69 @@
 <script>
 import FotoCard from "./FotoCard.vue";
 import axios from "axios";
-// import  {endpoint}  from "../stores/endpoint.js"
 
 export default {
   data() {
     return {
       photos: [],
-      isVisible:false,
-      title: "La mia lista di foto!"
-    }
-},
+      isVisible: false,
+      title: "La mia lista di foto!",
+      filterText: ""
+    };
+  },
 
-created() {
-  // API (funzione getPhotos dichiarata asincrona,al posto di await non passa alla linea successiva finche' non riceve la risposta da axios)
-  const endpoint = "http://localhost:8080/api/v1";
-  const getPhotos = async () => {
-    try {
-      const response = await axios.get(endpoint + '/photos');
-      //se axios va in errore non riusciro' a valorizzare response e posso mettere tutto in un try catch
-      this.photos = response.data;
-     
-    } catch (error) {
-      console.log(error);
-    }
-    
-      console.log(this.photos);
-      
-  };
-  
-  getPhotos(); // Chiamata alla funzione getPhotos
- 
-},
+  created() {
+    const endpoint = "http://localhost:8080/api/v1";
+    const getPhotos = async () => {
+      try {
+        const response = await axios.get(endpoint + "/photos");
+        this.photos = response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
+    getPhotos();
+  },
+
+  computed: {
+    filteredPhotos() {
+      return this.photos.filter(photo => {
+        return photo.title.toLowerCase().includes(this.filterText.toLowerCase());
+      });
+    }
+  },
+
+  methods: {
+    filterPhotos() {
+      // Esegui il filtraggio delle foto
+      // Utilizzando il computed property filteredPhotos
+    }
+  },
 
   components: {
-    FotoCard,
-  },
+    FotoCard
+  }
 };
 </script>
-
 <template>
-  <div v-if="this.photos.lenght != 0" >
-    <h1 class="mt-3">{{ title }}</h1>
-    <div class="row mt-5">
-        <FotoCard v-for="photo in photos" :key="photo.id" :photo="photo"/>
-     </div>
+  <div class="titolo-ricerca row">
+    <div class="col-6">
+      <h1 class="mt-3">{{ title }}</h1>
+    </div>
+
+
+    <div class="col-6 d-flex flex-column justify-content-center">
+      <input type="text" v-model="filterText" placeholder="Filtra per titolo">
+      <!-- <button @click="filterPhotos">Filtra</button> -->
+    </div>
+
   </div>
-  <div v-else="" >Non ci sono foto al momento</div>
-
-  <!-- <nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav> -->
+  <div v-if="filteredPhotos.length !== 0">
+    <div class="row mt-5">
+      <FotoCard v-for="photo in filteredPhotos" :key="photo.id" :photo="photo"/>
+    </div>
+  </div>
+  <h1 class="fw-bold mt-5" v-else>Al momento non ci sono foto</h1>
 </template>
-
 <style lang="scss" scoped></style>
