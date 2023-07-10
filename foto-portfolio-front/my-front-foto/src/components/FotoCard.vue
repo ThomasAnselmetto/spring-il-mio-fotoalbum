@@ -6,11 +6,12 @@ export default {
     return {
       
     }
-  }
+  },
 
-  // components: {
-  //   MyComponent,
-  // },
+props:{
+  photo:Object
+},
+
 };
 </script>
 
@@ -24,7 +25,7 @@ export default {
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">Io sono una card per foto</h5>
+          <h5 class="card-title">{{photo.name}}</h5>
           <p class="card-text">Descrizione della foto!</p>
           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
 
