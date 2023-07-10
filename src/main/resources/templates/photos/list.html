@@ -27,8 +27,8 @@
         </div>
 
         <div class="col-3" th:if="${photos.size > 0}" th:each="photo : ${photos}">
-
-            <div th:classappend="${photo.visible} ? '' : 'd-none'"  class="card border-primary border-3 border-opacity-50">
+<!--            v-if="photo.visible !== false"-->
+            <div class="card border-primary border-3 border-opacity-50">
 <!--                sec:authorize="hasAuthority('ADMIN')"  questo mi servira' piu' avanti-->
                 <a  class="bottone-to-detail" th:href="@{|/photos/${photo.id}|}">
                     <img th:src="${photo.url}" class="card-img-top" th:alt="${photo.title}">

@@ -1,6 +1,6 @@
 <script>
 import List from "./components/List.vue";
-
+import navbar from "./components/navbar.vue"
 
 export default {
   data() {
@@ -10,12 +10,13 @@ export default {
   },
 
   components: {
-    List,
+    List,navbar,
   },
 };
 </script>
 
 <template>
+  <navbar/>
   <div class="container">
     <List/>
   </div>
